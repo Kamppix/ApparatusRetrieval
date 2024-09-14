@@ -25,11 +25,21 @@ namespace ApparatusRetrieval.Patches
                 }
                 else
                 {
-                    TimeOfDay.Instance.timeUntilDeadline = TimeOfDay.Instance.timeUntilDeadline - TimeOfDay.Instance.timeUntilDeadline % TimeOfDay.Instance.totalTime;
+                    if (TimeOfDay.Instance.timeUntilDeadline >= 0)
+                    {
+                        TimeOfDay.Instance.timeUntilDeadline = TimeOfDay.Instance.timeUntilDeadline - TimeOfDay.Instance.timeUntilDeadline % TimeOfDay.Instance.totalTime + TimeOfDay.Instance.totalTime;
+                    }
+                    else
+                    {
+                        TimeOfDay.Instance.timeUntilDeadline = 0;
+                    }
                 }
             }
 
-            TimeOfDay.Instance.timeUntilDeadline = TimeOfDay.Instance.timeUntilDeadline - Math.Abs(TimeOfDay.Instance.timeUntilDeadline) % TimeOfDay.Instance.totalTime + 1;
+            if (TimeOfDay.Instance.timeUntilDeadline >= 0)
+            {
+                TimeOfDay.Instance.timeUntilDeadline = TimeOfDay.Instance.timeUntilDeadline - TimeOfDay.Instance.timeUntilDeadline % TimeOfDay.Instance.totalTime + 1;
+            }
 
             TimeOfDay.Instance.OnDayChanged();
             TimeOfDay.Instance.globalTime = 100f;
