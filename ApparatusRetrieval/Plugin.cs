@@ -65,12 +65,14 @@ namespace ApparatusRetrieval
                1.0f,
                "Speed multiplier for time progression.")
             );
+            /*
             BoolConfig.Add("EnableWeather", Config.Bind(
                "Difficulty",
                "EnableWeather",
                false,
-               "Toggles random weather conditions.")
+               "Enables random weather conditions.")
             );
+            */
             BoolConfig.Add("InstantWipe", Config.Bind(
                "Difficulty",
                "InstantWipe",
