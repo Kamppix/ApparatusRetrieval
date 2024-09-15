@@ -18,7 +18,7 @@ namespace ApparatusRetrieval.Patches
             
             if (__instance.scrapCollectedLastRound == 0)
             {
-                if (Plugin.BoolConfig["Hardcore"].Value)
+                if (false && Plugin.BoolConfig["Hardcore"].Value)
                 {
                     TimeOfDay.Instance.timeUntilDeadline = TimeOfDay.Instance.quotaVariables.deadlineDaysAmount * TimeOfDay.Instance.totalTime;
                     RoundManager.Instance.DespawnPropsAtEndOfRound(true);

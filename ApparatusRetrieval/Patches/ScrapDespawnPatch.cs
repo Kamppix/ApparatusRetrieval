@@ -7,7 +7,7 @@ namespace ApparatusRetrieval.Patches
     {
         private static void Prefix()
         {
-            if (!Plugin.BoolConfig["Hardcore"].Value) StartOfRound.Instance.allPlayersDead = false;
+            if (true || !Plugin.BoolConfig["Hardcore"].Value) StartOfRound.Instance.allPlayersDead = false;
             else StartOfRound.Instance.allPlayersDead = StartOfRound.Instance.scrapCollectedLastRound == 0;
         }
     }
