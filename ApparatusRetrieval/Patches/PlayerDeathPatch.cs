@@ -4,16 +4,17 @@ using UnityEngine;
 
 namespace ApparatusRetrieval.Patches
 {
-    [HarmonyPatch(typeof(PlayerControllerB), "KillPlayer")]
+    [HarmonyPatch(typeof(PlayerControllerB), "KillPlayerClientRpc")]
     public class PlayerDeathPatch
     {
-        private static void Postfix()
+        private static void Postfix(PlayerControllerB __instance)
         {
             if (Plugin.BoolConfig["InstantWipe"].Value)
             {
-                foreach (PlayerControllerB player in StartOfRound.Instance.allPlayerScripts)
+                if (__instance.isPlayerDead)
                 {
-                    if (player.isPlayerControlled && !player.isPlayerDead) player.KillPlayer(Vector3.zero);
+                    PlayerControllerB localPlayer = StartOfRound.Instance.localPlayerController;
+                    if (!localPlayer.isPlayerDead) localPlayer.KillPlayer(Vector3.zero, spawnBody: true, CauseOfDeath.Unknown, 1);
                 }
             }
         }

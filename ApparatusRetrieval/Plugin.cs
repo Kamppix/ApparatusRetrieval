@@ -56,21 +56,21 @@ namespace ApparatusRetrieval
             FloatConfig.Add("MapSizeMultiplier", Config.Bind(
                 "Difficulty",
                 "MapSizeMultiplier",
-                3.0f,
+                1.0f,
                 "Size multiplier for map generation. Minimum value: 1")
             );
             FloatConfig.Add("DaySpeedMultiplier", Config.Bind(
                "Difficulty",
                "DaySpeedMultiplier",
                1.0f,
-               "Speed multiplier for time progression.")
+               "Speed multiplier for daytime progression.")
             );
             /*
             BoolConfig.Add("EnableWeather", Config.Bind(
                "Difficulty",
                "EnableWeather",
                false,
-               "Enables random weather conditions.")
+               "Enables or disables random weather conditions.")
             );
             */
             BoolConfig.Add("InstantWipe", Config.Bind(
@@ -79,12 +79,14 @@ namespace ApparatusRetrieval
                false,
                "Every employee dies when one of you does.")
             );
+            /*
             BoolConfig.Add("Hardcore", Config.Bind(
                "Difficulty",
                "Hardcore",
                false,
                "The run is reset when you fail to retrieve the apparatus even once.")
             );
+            */
         }
     }
 }
